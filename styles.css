@@ -1,0 +1,291 @@
+/* Custom CSS Color Palette & Global Variables */
+:root {
+    --bg-color: #0b0f19;
+    --card-bg: rgba(22, 29, 47, 0.75);
+    --card-border: rgba(255, 255, 255, 0.12);
+    --text-primary: #f0f4f8;
+    --text-secondary: #94a3b8;
+    --accent-glow: #6366f1;
+    --accent-secondary: #ec4899;
+    --tag-bg: rgba(99, 102, 241, 0.15);
+    --tag-border: rgba(99, 102, 241, 0.35);
+    --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* CSS Global Resets */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5rem 1rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Frequently Forgotten Detail: Ambient Blur Lights in Background */
+.glow-bg {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(130px);
+    z-index: -1;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.glow-1 {
+    width: 380px;
+    height: 380px;
+    background: var(--accent-glow);
+    top: 5%;
+    left: 8%;
+}
+
+.glow-2 {
+    width: 320px;
+    height: 320px;
+    background: var(--accent-secondary);
+    bottom: 8%;
+    right: 8%;
+}
+
+/* Main Content Wrapper */
+.container {
+    max-width: 760px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+/* Glassmorphism Profile Header Card */
+.profile-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.avatar-wrapper {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.status-badge {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    background-color: #22c55e;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.65rem;
+    border-radius: 12px;
+    border: 2.5px solid var(--bg-color);
+}
+
+/* Typography Details */
+.name {
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+    color: var(--accent-glow);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+}
+
+/* Appearance Sub-card */
+.appearance-card {
+    background: rgba(0, 0, 0, 0.25);
+    padding: 1rem 1.25rem;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.appearance-card h3 {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.appearance-list {
+    list-style: none;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.appearance-list li {
+    margin-bottom: 0.3rem;
+}
+
+.appearance-list strong {
+    color: var(--text-primary);
+}
+
+/* Generic Section Styles */
+.section {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 2rem 2.25rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.section h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+/* Interactive Hobby Tags */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.tag {
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    color: var(--text-primary);
+    padding: 0.55rem 1.1rem;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    cursor: default;
+}
+
+.tag:hover {
+    transform: translateY(-3px);
+    background: rgba(99, 102, 241, 0.35);
+    border-color: var(--accent-glow);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
+}
+
+/* Biography Text */
+.bio-text {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+/* Detailed Bulleted List */
+.details-list {
+    list-style-type: none;
+}
+
+.details-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.details-list li::before {
+    content: "✦";
+    color: var(--accent-secondary);
+    font-size: 1rem;
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+}
+
+.details-list strong {
+    color: var(--text-primary);
+}
+
+/* Footer Section */
+.footer {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.btn-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    padding: 0.6rem 1.4rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-link:hover {
+    background: var(--accent-glow);
+    border-color: var(--accent-glow);
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+}
+
+.copyright {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Responsive Styles for Smaller Displays */
+@media (max-width: 650px) {
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+    }
+
+    .appearance-list {
+        text-align: left;
+    }
+
+    .tags-container {
+        justify-content: center;
+    }
+
+    .name {
+        font-size: 2.1rem;
+    }
+}
